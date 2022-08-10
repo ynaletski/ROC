@@ -1,0 +1,29 @@
+The conversion of ROC300 ROCPAC user programs to ROC300 FlashPAC programs
+requires, at a minimum, the following changes:
+
+1) Modifying program load address.  The FlashPAC provides user program 
+   code space in segments C000 and D000 and data space in segments A000
+   and B000.
+   
+2) Include ROC407 library, fblib.lib, in place of old ROC library, 
+   roclib.lib.  The biggest difference in the libraries is the set_param 
+   and get_param calls have one less argument, "number of params".
+   
+3) Include new global declaration file, fb_glob.h, in place of old ROC 
+   globals file, roc.h.
+   
+4) Replace all references to ROCPAC comm structure, Cms, with new comm
+   structure, Sio.  Also the remove any interrupt service routines from
+   comm program as these are now handled by the ROC operating system.
+   
+
+Along with this read.me file, the user should also receive the following
+files:
+
+fb_glob.h - ROC407/ROC300 FlashPAC global data and structure definitions
+dtypes.h  - Fisher recommended primative data types
+fblib.lib - ROC407/FlashPAC library
+fblib.h   - Library function prototypes
+
+This set of files is intended for creating user C programs for the ROC407 
+version 1.05 and greater and all versions of the ROC300 FlashPAC.

@@ -1,0 +1,28 @@
+my compile original result (163649 Byte)
+
+c:\nm\roc\gasflow>lk.bat
+c:\nm\roc\gasflow>cc +L +1 -Z6000 -DFLOBOSS -ansi ng_an_mn.c -o gost_fb.o
+Aztec C86 Pass1 v4.10d 10-25-88 (C) 1982-1988 by Manx Software System, Inc.
+Aztec C86 Pass2 v4.10d 10-10-88 (C) 1982-1988 by Manx Software System, Inc.
+Aztec 8086 Assembler v4.10d 10-6-88
+
+c:\nm\roc\gasflow>as -DMODEL=3 start.asm
+Aztec 8086 Assembler v4.10d 10-6-88
+
+c:\nm\roc\gasflow>as -DGOST407B -DMODEL=3 na_ints.asm -o gost407b.o
+Aztec 8086 Assembler v4.10d 10-6-88
+
+c:\nm\roc\gasflow>ln -C B000 -D 6400 -t -o vnic407b.exe gost_fb gost407b start -lfblib -lml -lcl
+Aztec C Lincer Version  v4.10d 7-22-88
+Code: d4a6  FarData: 0000  Data: 0e84  Udata: 06ee  Total: 00ea22
+
+c:\nm\roc\gasflow>hex86 -x -s64 -p64 vnic407b.exe
+
+c:\nm\roc\gasflow>del vnic407b.exe
+
+-------------------------------------------------------------------------------------------------------------------
+my new programm compile result (164369 Byte)
+
+-- || --
+Code: d4a6  FarData: 0000  Data: 0e84  Udata: 06ee  Total: 00ea22
+Code: d5a2  FarData: 0000  Data: 0e84  Udata: 06ee  Total: 00eb22
